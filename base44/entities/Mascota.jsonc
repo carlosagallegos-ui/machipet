@@ -1,0 +1,91 @@
+{
+  "name": "Mascota",
+  "type": "object",
+  "properties": {
+    "dueno_id": {
+      "type": "string"
+    },
+    "nombre": {
+      "type": "string"
+    },
+    "especie": {
+      "type": "string",
+      "enum": [
+        "perro",
+        "gato",
+        "otro"
+      ]
+    },
+    "raza": {
+      "type": "string"
+    },
+    "edad_anios": {
+      "type": "number"
+    },
+    "peso_kg": {
+      "type": "number"
+    },
+    "sexo": {
+      "type": "string",
+      "enum": [
+        "macho",
+        "hembra"
+      ]
+    },
+    "foto_url": {
+      "type": "string"
+    },
+    "enfermedades": {
+      "type": "string"
+    },
+    "medicamentos": {
+      "type": "string"
+    },
+    "vacunas_al_dia": {
+      "type": "boolean",
+      "default": false
+    },
+    "alergias": {
+      "type": "string"
+    },
+    "agresividad": {
+      "type": "string",
+      "enum": [
+        "ninguna",
+        "baja",
+        "media",
+        "alta"
+      ],
+      "default": "ninguna"
+    },
+    "ansiedad": {
+      "type": "string",
+      "enum": [
+        "ninguna",
+        "baja",
+        "media",
+        "alta"
+      ],
+      "default": "ninguna"
+    },
+    "rutina_diaria": {
+      "type": "string"
+    },
+    "convivencia_animales": {
+      "type": "boolean",
+      "default": true
+    },
+    "convivencia_ninos": {
+      "type": "boolean",
+      "default": true
+    },
+    "notas_especiales": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "dueno_id",
+    "nombre",
+    "especie"
+  ]
+}

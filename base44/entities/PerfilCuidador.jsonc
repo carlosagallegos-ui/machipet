@@ -1,0 +1,94 @@
+{
+  "name": "PerfilCuidador",
+  "type": "object",
+  "properties": {
+    "usuario_id": {
+      "type": "string"
+    },
+    "nombre": {
+      "type": "string"
+    },
+    "foto_url": {
+      "type": "string"
+    },
+    "ciudad": {
+      "type": "string"
+    },
+    "zona": {
+      "type": "string"
+    },
+    "bio": {
+      "type": "string"
+    },
+    "experiencia_anios": {
+      "type": "number"
+    },
+    "servicios_ofrecidos": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "hospedaje",
+          "guarderia",
+          "paseo",
+          "bano"
+        ]
+      }
+    },
+    "acepta_perros": {
+      "type": "boolean",
+      "default": true
+    },
+    "acepta_gatos": {
+      "type": "boolean",
+      "default": true
+    },
+    "acepta_especiales": {
+      "type": "boolean",
+      "default": false
+    },
+    "tarifa_paseo": {
+      "type": "number"
+    },
+    "tarifa_guarderia": {
+      "type": "number"
+    },
+    "tarifa_hospedaje": {
+      "type": "number"
+    },
+    "tarifa_bano": {
+      "type": "number"
+    },
+    "disponible": {
+      "type": "boolean",
+      "default": true
+    },
+    "estado_verificacion": {
+      "type": "string",
+      "enum": [
+        "pendiente",
+        "aprobado",
+        "rechazado"
+      ],
+      "default": "pendiente"
+    },
+    "calificacion_promedio": {
+      "type": "number",
+      "default": 0
+    },
+    "total_resenias": {
+      "type": "number",
+      "default": 0
+    },
+    "fotos_espacio": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "usuario_id",
+    "nombre"
+  ]
+}

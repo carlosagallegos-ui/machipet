@@ -1,0 +1,30 @@
+{
+  "name": "Evidencia",
+  "type": "object",
+  "properties": {
+    "servicio_id": {
+      "type": "string"
+    },
+    "cuidador_id": {
+      "type": "string"
+    },
+    "tipo": {
+      "type": "string",
+      "enum": [
+        "recepcion",
+        "actualizacion",
+        "entrega"
+      ]
+    },
+    "foto_url": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "servicio_id",
+    "tipo"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "name": "Servicio",
+  "type": "object",
+  "properties": {
+    "codigo_unico": {
+      "type": "string"
+    },
+    "dueno_id": {
+      "type": "string"
+    },
+    "cuidador_id": {
+      "type": "string"
+    },
+    "mascota_id": {
+      "type": "string"
+    },
+    "tipo_servicio": {
+      "type": "string",
+      "enum": [
+        "hospedaje",
+        "guarderia",
+        "paseo",
+        "bano"
+      ]
+    },
+    "estado": {
+      "type": "string",
+      "enum": [
+        "solicitado",
+        "confirmado",
+        "activo",
+        "completado",
+        "cancelado"
+      ],
+      "default": "solicitado"
+    },
+    "fecha_inicio": {
+      "type": "string",
+      "format": "date"
+    },
+    "fecha_fin": {
+      "type": "string",
+      "format": "date"
+    },
+    "precio_acordado": {
+      "type": "number"
+    },
+    "comision_plataforma": {
+      "type": "number"
+    },
+    "mensaje_due\u00f1o": {
+      "type": "string"
+    },
+    "reporte_final": {
+      "type": "string"
+    },
+    "calificacion_due\u00f1o_a_cuidador": {
+      "type": "number"
+    },
+    "calificacion_cuidador_a_dueno": {
+      "type": "number"
+    },
+    "resenia_due\u00f1o": {
+      "type": "string"
+    },
+    "resenia_cuidador": {
+      "type": "string"
+    },
+    "nombre_mascota": {
+      "type": "string"
+    },
+    "nombre_cuidador": {
+      "type": "string"
+    },
+    "nombre_dueno": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "dueno_id",
+    "cuidador_id",
+    "mascota_id",
+    "tipo_servicio"
+  ]
+}

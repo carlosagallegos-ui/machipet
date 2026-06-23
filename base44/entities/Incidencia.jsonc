@@ -1,0 +1,42 @@
+{
+  "name": "Incidencia",
+  "type": "object",
+  "properties": {
+    "servicio_id": {
+      "type": "string"
+    },
+    "reportado_por": {
+      "type": "string"
+    },
+    "tipo": {
+      "type": "string",
+      "enum": [
+        "salud",
+        "extrav\u00edo",
+        "accidente",
+        "conducta",
+        "otro"
+      ]
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "estado": {
+      "type": "string",
+      "enum": [
+        "abierta",
+        "en_proceso",
+        "resuelta"
+      ],
+      "default": "abierta"
+    },
+    "notas_admin": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "servicio_id",
+    "tipo",
+    "descripcion"
+  ]
+}
