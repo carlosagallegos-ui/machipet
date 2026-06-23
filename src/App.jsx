@@ -19,6 +19,7 @@ import MisServicios from './pages/MisServicios';
 import DetalleServicio from './pages/DetalleServicio';
 import Perfil from './pages/Perfil';
 import AdminPanel from './pages/AdminPanel';
+import ServiciosAliados from './pages/ServiciosAliados';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -58,6 +59,7 @@ const AuthenticatedApp = () => {
           <Route path="/servicio/:id" element={<DetalleServicio />} />
           <Route path="/perfil" element={<Perfil />} />
           <Route path="/admin" element={<AdminPanel />} />
+          <Route path="/servicios-aliados" element={<ServiciosAliados />} />
         </Route>
       </Route>
       <Route path="*" element={<PageNotFound />} />

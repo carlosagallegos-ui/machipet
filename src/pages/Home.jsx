@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { Search, PawPrint, Shield, Star, ArrowRight, Heart } from "lucide-react";
-import { SERVICIOS, formatearPrecio } from "@/lib/machipet-utils";
+import { SERVICIOS } from "@/lib/machipet-utils";
 import ServiceBadge from "@/components/ServiceBadge";
 
 export default function Home() {
@@ -121,17 +121,34 @@ export default function Home() {
       <div>
         <h2 className="font-black text-[#1A1A2E] text-lg mb-3">¿Qué necesitas?</h2>
         <div className="grid grid-cols-2 gap-3">
-          {Object.entries(SERVICIOS).map(([key, s]) => (
-            <Link
-              key={key}
-              to={`/buscar?servicio=${key}`}
-              className="bg-white rounded-2xl p-4 flex flex-col items-start gap-2 shadow-sm border border-orange-50 hover:border-orange-300 hover:shadow-md transition-all"
-            >
-              <span className="text-3xl">{s.icon}</span>
-              <p className="font-bold text-[#1A1A2E] text-sm">{s.label}</p>
-              <p className="text-xs text-gray-400">Encontrar cuidador</p>
-            </Link>
-          ))}
+          {[
+            { key: "hospedaje", nav: "/buscar?servicio=hospedaje", sub: "Encontrar cuidador" },
+            { key: "guarderia", nav: "/buscar?servicio=guarderia", sub: "Encontrar cuidador" },
+            { key: "paseo", nav: "/buscar?servicio=paseo", sub: "Encontrar cuidador" },
+            { key: "bano", nav: "/buscar?servicio=bano", sub: "Encontrar cuidador" },
+            { key: "veterinaria", nav: "/servicios-aliados?tipo=veterinaria", sub: "Clínicas aliadas" },
+            { key: "crematorio", nav: "/servicios-aliados?tipo=crematorio", sub: "Despedida con amor" },
+          ].map(({ key, nav, sub }) => {
+            const s = SERVICIOS[key];
+            const isAliado = ["veterinaria", "crematorio"].includes(key);
+            return (
+              <Link
+                key={key}
+                to={nav}
+                className={`rounded-2xl p-4 flex flex-col items-start gap-2 shadow-sm border transition-all hover:shadow-md ${
+                  isAliado
+                    ? key === "crematorio"
+                      ? "bg-slate-800 border-slate-700 hover:bg-slate-700"
+                      : "bg-rose-50 border-rose-100 hover:border-rose-300"
+                    : "bg-white border-orange-50 hover:border-orange-300"
+                }`}
+              >
+                <span className="text-3xl">{s.icon}</span>
+                <p className={`font-bold text-sm ${isAliado && key === "crematorio" ? "text-white" : "text-[#1A1A2E]"}`}>{s.label}</p>
+                <p className={`text-xs ${isAliado && key === "crematorio" ? "text-slate-400" : "text-gray-400"}`}>{sub}</p>
+              </Link>
+            );
+          })}
         </div>
       </div>
 

@@ -3,7 +3,12 @@ export const SERVICIOS = {
   guarderia: { label: "Guardería", icon: "🐾", color: "bg-purple-100 text-purple-700" },
   paseo: { label: "Paseo", icon: "🦮", color: "bg-green-100 text-green-700" },
   bano: { label: "Baño", icon: "🛁", color: "bg-cyan-100 text-cyan-700" },
+  veterinaria: { label: "Veterinaria", icon: "🏥", color: "bg-rose-100 text-rose-700" },
+  crematorio: { label: "Crematorio", icon: "🕊️", color: "bg-slate-100 text-slate-600" },
 };
+
+// Servicios que son "aliados" (no cuidadores individuales) — tienen su propia página
+export const SERVICIOS_ALIADOS = ["veterinaria", "crematorio"];
 
 export const ESTADOS_SERVICIO = {
   solicitado: { label: "Solicitado", color: "bg-yellow-100 text-yellow-700" },

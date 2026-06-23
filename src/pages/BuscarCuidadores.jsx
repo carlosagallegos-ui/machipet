@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { Search, Filter, MapPin, Star, ChevronRight } from "lucide-react";
-import { SERVICIOS, formatearPrecio } from "@/lib/machipet-utils";
+import { SERVICIOS, SERVICIOS_ALIADOS, formatearPrecio } from "@/lib/machipet-utils";
 import ServiceBadge from "@/components/ServiceBadge";
 import StarRating from "@/components/StarRating";
 
@@ -17,7 +17,14 @@ export default function BuscarCuidadores() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const s = params.get("servicio");
-    if (s) setFiltroServicio(s);
+    if (s) {
+      // Redirigir servicios aliados a su propia página
+      if (SERVICIOS_ALIADOS.includes(s)) {
+        navigate(`/servicios-aliados?tipo=${s}`, { replace: true });
+        return;
+      }
+      setFiltroServicio(s);
+    }
     loadCuidadores();
   }, []);
 
@@ -69,7 +76,7 @@ export default function BuscarCuidadores() {
             onChange={(e) => setFiltroServicio(e.target.value)}
           >
             <option value="">Todos los servicios</option>
-            {Object.entries(SERVICIOS).map(([k, v]) => (
+            {Object.entries(SERVICIOS).filter(([k]) => !SERVICIOS_ALIADOS.includes(k)).map(([k, v]) => (
               <option key={k} value={k}>{v.icon} {v.label}</option>
             ))}
           </select>
