@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { Search, Filter, MapPin, Star, ChevronRight } from "lucide-react";
 import { SERVICIOS, SERVICIOS_ALIADOS, formatearPrecio } from "@/lib/machipet-utils";
@@ -13,12 +13,11 @@ export default function BuscarCuidadores() {
   const [filtroCiudad, setFiltroCiudad] = useState("");
   const [busqueda, setBusqueda] = useState("");
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const s = params.get("servicio");
+    const s = searchParams.get("servicio");
     if (s) {
-      // Redirigir servicios aliados a su propia página
       if (SERVICIOS_ALIADOS.includes(s)) {
         navigate(`/servicios-aliados?tipo=${s}`, { replace: true });
         return;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { ArrowLeft, MapPin, Phone, ExternalLink, Search } from "lucide-react";
 import { SERVICIOS } from "@/lib/machipet-utils";
 
@@ -22,8 +22,8 @@ const ALIADOS_DATA = {
 
 export default function ServiciosAliados() {
   const navigate = useNavigate();
-  const params = new URLSearchParams(window.location.search);
-  const tipo = params.get("tipo") || "veterinaria";
+  const [searchParams] = useSearchParams();
+  const tipo = searchParams.get("tipo") || "veterinaria";
   const [busqueda, setBusqueda] = useState("");
   const [filtroCiudad, setFiltroCiudad] = useState("");
 
